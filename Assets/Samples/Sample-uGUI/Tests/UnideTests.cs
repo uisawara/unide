@@ -8,10 +8,12 @@ namespace Samples.Sample_uGUI.Tests
 {
     public sealed class UnideTests
     {
+        private IUnideDriver _driver = new UnideDriver();
+        
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            UnideDriver.Open("Sample-uGUI");
+            _driver.Open("Sample-uGUI");
         }
     
         [UnityTest]

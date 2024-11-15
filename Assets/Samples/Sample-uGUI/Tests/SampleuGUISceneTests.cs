@@ -7,12 +7,14 @@ namespace Samples.Sample_uGUI.Tests
 {
     public sealed class SampleuGUISceneTests
     {
+        private IUnideDriver _driver = new UnideDriver();
+        
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            UnideDriver.Open("Sample-uGUI");
+            _driver.Open("Sample-uGUI");
         }
-    
+
         [UnityTest]
         public IEnumerator ページAに画面遷移で往復できる() => UniTask.ToCoroutine(async () =>
         {

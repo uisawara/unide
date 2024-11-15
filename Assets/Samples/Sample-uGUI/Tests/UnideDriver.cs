@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public static class UnideDriver
+public sealed class UnideDriver : IUnideDriver
 {
-    public static void Open(string sceneName)
+    public void Open(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
