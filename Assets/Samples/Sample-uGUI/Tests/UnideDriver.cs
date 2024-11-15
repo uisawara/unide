@@ -26,7 +26,12 @@ public sealed class UnideDriver : IUnideDriver
     {
         return FindAll().Where(obj => obj.tag == tag).First();
     }
-    
+
+    public GameObject FindObjectByComponent<TComponent>() where TComponent : Component
+    {
+        return FindAll().Where(obj => obj.gameObject.GetComponent<TComponent>()).First();
+    }
+
     private void EnumGameObject(List<GameObject> results)
     {
         void SearchInChildren(GameObject parent, List<GameObject> results)

@@ -1,4 +1,6 @@
-﻿public sealed class UnideQuerySource
+﻿using Cysharp.Threading.Tasks;
+
+public sealed class UnideQuerySource
 {
     private const int DefaultTimeout = 1000;
     private const int DefaultDelay = 500;
@@ -13,8 +15,8 @@
         TestDriver = testDriver;
     }
 
-    public UnideQuery CreateQueryContext()
+    public UniTask<UnideQuery> CreateQueryContext()
     {
-        return new UnideQuery(this);
+        return UniTask.FromResult(new UnideQuery(this));
     }
 }

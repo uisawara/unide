@@ -10,7 +10,7 @@ namespace Samples.Sample_uGUI.Tests
         private readonly IUnideDriver D;
         private readonly UnideQuerySource _querySource;
 
-        private UnideQuery Q => _querySource.CreateQueryContext();
+        private UniTask<UnideQuery> Q => _querySource.CreateQueryContext();
 
         public SampleuGUISceneTests()
         {

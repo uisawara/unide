@@ -7,4 +7,5 @@ public interface IUnideDriver
     List<GameObject> FindAll();
     GameObject FindObjectByName(string name);
     GameObject FindObjectByTag(string tag);
+    GameObject FindObjectByComponent<TComponent>() where TComponent : Component;
 }

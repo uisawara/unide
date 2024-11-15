@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.UI;
 
 namespace Samples.Sample_uGUI.Tests
 {
@@ -12,7 +13,7 @@ namespace Samples.Sample_uGUI.Tests
         private readonly IUnideDriver D;
         private readonly UnideQuerySource _querySource;
 
-        private UnideQuery Q => _querySource.CreateQueryContext();
+        private UniTask<UnideQuery> Q => _querySource.CreateQueryContext();
 
         public UnideTests()
         {
@@ -36,6 +37,12 @@ namespace Samples.Sample_uGUI.Tests
         public IEnumerator Tagで検索できる() => UniTask.ToCoroutine(async () =>
         {
             await Q.ByTag("MainCamera");
+        });
+
+        [UnityTest]
+        public IEnumerator Componentで検索できる() => UniTask.ToCoroutine(async () =>
+        {
+            await Q.ByComponent<Button>();
         });
 
         [UnityTest]
