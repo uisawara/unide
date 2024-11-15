@@ -53,13 +53,33 @@ namespace Samples.Sample_uGUI.Tests
         [UnityTest]
         public IEnumerator Nameで検索して該当なしで例外がでる() => UniTask.ToCoroutine(async () =>
         {
-            throw new NotImplementedException();
+            var throwsException = false;
+            try
+            {
+                await Q.ByName("unknown");
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+                throwsException = true;
+            }
+            Assert.IsTrue(throwsException);
         });
 
         [UnityTest]
         public IEnumerator Tagで検索して該当なしで例外がでる() => UniTask.ToCoroutine(async () =>
         {
-            throw new NotImplementedException();
+            var throwsException = false;
+            try
+            {
+                await Q.ByTag("unknown");
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+                throwsException = true;
+            }
+            Assert.IsTrue(throwsException);        
         });
 
         [UnityTest]
