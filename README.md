@@ -100,13 +100,11 @@ public sealed class SampleuGUISceneObject : SceneObjectBase
 
 public sealed class SampleuGUISceneWithSceneObjectTests
 {
-    private readonly IUnideDriver D;
     private readonly SampleuGUISceneObject _sceneObject;
 
     public SampleuGUISceneWithSceneObjectTests()
     {
-        D = new UnideDriver();
-        _sceneObject = new SampleuGUISceneObject(D);
+        _sceneObject = new SampleuGUISceneObject(new UnideDriver());
     }
 
     [OneTimeSetUp]
