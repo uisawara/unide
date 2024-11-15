@@ -1,20 +1,21 @@
 ﻿using System.Collections;
 using Cysharp.Threading.Tasks;
 using NUnit.Framework;
-using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace Samples.Sample_uGUI.Tests
 {
     public sealed class SampleuGUISceneTests
     {
-        private IUnideDriver D { get; }
-        private UnideContext Q { get; }
+        private readonly IUnideDriver D;
+        private readonly UnideQuerySource _querySource;
+
+        private UnideQuery Q => _querySource.CreateQueryContext();
 
         public SampleuGUISceneTests()
         {
             D = new UnideDriver();
-            Q = new UnideContext(D);
+            _querySource = new UnideQuerySource(D);
         }
         
         [OneTimeSetUp]

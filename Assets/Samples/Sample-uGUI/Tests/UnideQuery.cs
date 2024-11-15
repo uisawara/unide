@@ -3,55 +3,51 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public sealed class UnideContext
+public sealed class UnideQuery
 {
-    private const int DefaultTimeout = 1000;
-    private const int DefaultDelay = 500;
+    public GameObject Target { get; private set; }
 
-    public GameObject Target { get; }
-
-    public int Timeout { get; set; } = DefaultTimeout;
-    public int Delay { get; set; } = DefaultDelay;
-
-    public UnideContext(GameObject target)
-    {
-        Target = target;
-    }
+    public int Timeout { get; set; }
+    public int Delay { get; set; }
 
     private IUnideDriver _testDriver;
 
-    public UnideContext(IUnideDriver testDriver)
+    public UnideQuery(UnideQuerySource querySource)
     {
-        _testDriver = testDriver;
+        _testDriver = querySource.TestDriver;
+        Timeout = querySource.Timeout;
+        Delay = querySource.Delay;
     }
 
-    public async UniTask<UnideContext> ByName(string name)
+    public async UniTask<UnideQuery> ByName(string name)
     {
         await UniTask.WaitWhile(() => _testDriver.FindObjectByName(name) == null)
             .WithTimeout(Timeout);
         var gameObject = _testDriver.FindObjectByName(name);
-        return new UnideContext(gameObject);
+        Target = gameObject;
+        return this;
     }
 
-    public async UniTask<UnideContext> ByTag(string tag)
+    public async UniTask<UnideQuery> ByTag(string tag)
     {
         await UniTask.WaitWhile(() => _testDriver.FindObjectByTag(tag) == null)
             .WithTimeout(Timeout);
         var gameObject = _testDriver.FindObjectByTag(tag);
-        return new UnideContext(gameObject);
+        Target = gameObject;
+        return this;
     }
 }
 
-public static class TestContextMethodChainExtensions
+public static class UnideQueryMethodChainExtensions
 {
-    public static async UniTask<UnideContext> SetTimeout(this UniTask<UnideContext> self, int timeout)
+    public static async UniTask<UnideQuery> SetTimeout(this UniTask<UnideQuery> self, int timeout)
     {
         var context = await self;
         context.Timeout = timeout;
         return context;
     }
 
-    public static async UniTask<UnideContext> SetDelay(this UniTask<UnideContext> self, int delay)
+    public static async UniTask<UnideQuery> SetDelay(this UniTask<UnideQuery> self, int delay)
     {
         var context = await self;
         context.Delay = delay;
@@ -67,9 +63,9 @@ public enum Condition
     NonInteractive,
 }
 
-public static class TestContextExtensions
+public static class UnideValidationExtensions
 {
-    public static async UniTask ShouldBe(this UniTask<UnideContext> self, Condition condition)
+    public static async UniTask ShouldBe(this UniTask<UnideQuery> self, Condition condition)
     {
         var context = await self;
         
@@ -91,8 +87,11 @@ public static class TestContextExtensions
                 throw new ArgumentOutOfRangeException(nameof(condition), condition, null);
         }
     }
+}
 
-    public static async UniTask Click(this UniTask<UnideContext> self)
+public static class UnideComponentActionExtensions
+{
+    public static async UniTask Click(this UniTask<UnideQuery> self)
     {
         var context = await self;
         await UniTask.Delay(context.Delay);
