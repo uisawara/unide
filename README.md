@@ -1,5 +1,3 @@
-![IMAGE](https://github.com/uisawara/unide/blob/main/Assets/icon.png)
-
 ![IMAGE](https://github.com/uisawara/unide/blob/main/CodeCoverage/Report/badge_combined.svg)
 
 # Introduction
@@ -162,3 +160,4 @@ await Q.ByName("LabelA")
     .ShouldHave("LabelA");
 ```
 
+![IMAGE](https://github.com/uisawara/unide/blob/main/Assets/icon.png)
