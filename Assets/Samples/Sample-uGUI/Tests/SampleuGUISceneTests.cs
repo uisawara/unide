@@ -1,20 +1,28 @@
 ﻿using System.Collections;
 using Cysharp.Threading.Tasks;
 using NUnit.Framework;
+using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace Samples.Sample_uGUI.Tests
 {
     public sealed class SampleuGUISceneTests
     {
-        private IUnideDriver _driver = new UnideDriver();
+        private IUnideDriver D { get; }
+        private UnideContext Q { get; }
+
+        public SampleuGUISceneTests()
+        {
+            D = new UnideDriver();
+            Q = new UnideContext(D);
+        }
         
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            _driver.Open("Sample-uGUI");
+            D.Open("Sample-uGUI");
         }
-
+    
         [UnityTest]
         public IEnumerator ページAに画面遷移で往復できる() => UniTask.ToCoroutine(async () =>
         {

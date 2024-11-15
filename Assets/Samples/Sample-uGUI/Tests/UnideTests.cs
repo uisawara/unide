@@ -2,18 +2,26 @@
 using System.Collections;
 using Cysharp.Threading.Tasks;
 using NUnit.Framework;
+using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace Samples.Sample_uGUI.Tests
 {
     public sealed class UnideTests
     {
-        private IUnideDriver _driver = new UnideDriver();
+        private IUnideDriver D { get; }
+        private UnideContext Q { get; }
+
+        public UnideTests()
+        {
+            D = new UnideDriver();
+            Q = new UnideContext(D);
+        }
         
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            _driver.Open("Sample-uGUI");
+            D.Open("Sample-uGUI");
         }
     
         [UnityTest]
@@ -65,6 +73,40 @@ namespace Samples.Sample_uGUI.Tests
         public IEnumerator ShouldBeでNonInteractiveを確認できる() => UniTask.ToCoroutine(async () =>
         {
             await Q.ByName("BackButton")
+                .ShouldBe(Condition.NonInteractive);
+        });
+        
+        [UnityTest]
+        public IEnumerator Timeout指定できる() => UniTask.ToCoroutine(async () =>
+        {
+            await Q.ByName("SubPageAButton")
+                .SetTimeout(10000)
+                .Click();
+            await Q.ByName("BackButton")
+                .Click();
+        });
+        
+        [UnityTest]
+        public IEnumerator TimeoutするとExceptionが発生する() => UniTask.ToCoroutine(async () =>
+        {
+            var throwsException = false;
+            try
+            {
+                await Q.ByName("unknown");
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+                throwsException = true;
+            }
+            Assert.IsTrue(throwsException);
+        });
+        
+        [UnityTest]
+        public IEnumerator Delay指定できる() => UniTask.ToCoroutine(async () =>
+        {
+            await Q.ByName("BackButton")
+                .SetDelay(3000)
                 .ShouldBe(Condition.NonInteractive);
         });
     }
