@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -110,6 +111,14 @@ public static class UnideValidationExtensions
             default:
                 throw new ArgumentOutOfRangeException(nameof(condition), condition, null);
         }
+    }
+
+    public static async UniTask ShouldHave(this UniTask<UnideQuery> self, string text)
+    {
+        var context = await self;
+        await UniTask.WaitUntil(() => 
+                text.Equals(context.Target.GetComponent<TextMeshProUGUI>()?.text))
+            .WithTimeout(context.Timeout);
     }
 }
 

@@ -111,6 +111,30 @@ namespace Samples.Sample_uGUI.Tests
         });
 
         [UnityTest]
+        public IEnumerator ShouldHaveでtextを確認できる() => UniTask.ToCoroutine(async () =>
+        {
+            await Q.ByName("LabelA")
+                .ShouldHave("LabelA");
+        });
+
+        [UnityTest]
+        public IEnumerator ShouldHaveでtextが成立せず例外がでる() => UniTask.ToCoroutine(async () =>
+        {
+            var throwsException = false;
+            try
+            {
+                await Q.ByName("LabelA")
+                    .ShouldHave("not LabelA");
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+                throwsException = true;
+            }
+            Assert.IsTrue(throwsException);
+        });
+
+        [UnityTest]
         public IEnumerator ShouldBeでNonInteractiveを確認できる() => UniTask.ToCoroutine(async () =>
         {
             await Q.ByName("BackButton")
