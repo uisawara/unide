@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public sealed class UnideQuery
 {
-    public GameObject Target { get; private set; }
+    public GameObject Target { get; set; }
 
     public int Timeout { get; set; }
     public int Delay { get; set; }
@@ -40,6 +40,13 @@ public sealed class UnideQuery
 
 public static class UnideQueryMethodChainExtensions
 {
+    public static async UniTask<UnideQuery> At(this UniTask<UnideQuery> self, int childIndex)
+    {
+        var context = await self;
+        context.Target = context.Target.transform.GetChild(childIndex).gameObject;
+        return context;
+    }
+
     public static async UniTask<UnideQuery> SetTimeout(this UniTask<UnideQuery> self, int timeout)
     {
         var context = await self;

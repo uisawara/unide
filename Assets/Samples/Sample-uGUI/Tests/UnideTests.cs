@@ -39,6 +39,18 @@ namespace Samples.Sample_uGUI.Tests
         });
 
         [UnityTest]
+        public IEnumerator Atで子要素取得できる() => UniTask.ToCoroutine(async () =>
+        {
+            var child0 = await Q.ByName("ChildSwitcher")
+                .At(0);
+            Assert.AreEqual(child0.Target.gameObject.name, "TopPage");
+            
+            var child1 = await Q.ByName("ChildSwitcher")
+                .At(1);
+            Assert.AreEqual(child1.Target.gameObject.name, "SubPageA");
+        });
+        
+        [UnityTest]
         public IEnumerator Nameで検索して該当なしで例外がでる() => UniTask.ToCoroutine(async () =>
         {
             throw new NotImplementedException();
