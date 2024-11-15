@@ -5,12 +5,12 @@ using UnityEngine.TestTools;
 
 namespace Samples.Sample_uGUI.Tests
 {
-    public sealed class SampleuGUISceneWithPageObjectTests
+    public sealed class SampleuGUISceneWithSceneObjectTests
     {
         private readonly IUnideDriver D;
         private readonly SampleuGUISceneObject _sceneObject;
 
-        public SampleuGUISceneWithPageObjectTests()
+        public SampleuGUISceneWithSceneObjectTests()
         {
             D = new UnideDriver();
             _sceneObject = new SampleuGUISceneObject(D);
@@ -81,6 +81,10 @@ namespace Samples.Sample_uGUI.Tests
         });
     }
 }
+
+/// <summary>
+/// シーン内のGameObjectを列挙したSceneObject
+/// </summary>
 public sealed class SampleuGUISceneObject : SceneObjectBase
 {
     public override string SceneName => "Sample-uGUI";
