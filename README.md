@@ -1,3 +1,5 @@
+![IMAGE](https://github.com/uisawara/unide/blob/main/CodeCoverage/Report/badge_combined.svg)
+
 # Introduction
 
 selenideに影響を受け Unity3D向けのUIテストを気軽に書けるようにしたいと考え、実験的に作ったPackageです。
