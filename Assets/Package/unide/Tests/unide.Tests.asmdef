@@ -1,10 +1,9 @@
 {
-    "name": "unide.Sample-uGUI.Tests",
-    "rootNamespace": "unide.SampleuGUI.Tests",
+    "name": "unide.Tests",
+    "rootNamespace": "unide.Tests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Unity.TextMeshPro",
         "UniTask",
         "unide"
     ],
