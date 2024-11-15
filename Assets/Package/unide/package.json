@@ -1,0 +1,11 @@
+{
+	"name": "com.github.uisawara.unide",
+	"version": "0.0.1",
+	"displayName": "unide",
+	"description": "UI test utility for Unity.",
+	"unity": "2020.1",
+	"author": {
+		"name": "uisawara",
+		"url": "https://github.com/uisawara/unide"
+	}
+}
