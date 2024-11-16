@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -91,5 +92,14 @@ public sealed class UnideDriver : IUnideDriver
         {
             SearchInChildren(obj, results);
         }
+    }
+
+    public async UniTask CaptureScreenshot(string filePath)
+    {
+        var fileParentPath = Directory.GetParent(filePath).FullName;
+        if (!Directory.Exists(fileParentPath)) Directory.CreateDirectory(fileParentPath);
+
+        ScreenCapture.CaptureScreenshot(filePath);
+        await UniTask.Delay(100);
     }
 }

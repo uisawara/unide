@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System.IO;
 using Cysharp.Threading.Tasks;
 using NUnit.Framework;
+using UnityEngine;
 using UnityEngine.TestTools;
 
 namespace Samples.Sample_uGUI.Tests
@@ -22,6 +24,8 @@ namespace Samples.Sample_uGUI.Tests
         public void OneTimeSetUp()
         {
             D.Open("Sample-uGUI");
+            _querySource.BaseScreenshotPath = Path.Combine(Application.dataPath, "../TestResults/IntegrationTests/Screenshots/");
+            _querySource.EnableCaptureScreenshotBeforeClick = true;
         }
     
         [UnityTest]

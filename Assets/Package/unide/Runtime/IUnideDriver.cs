@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public interface IUnideDriver
@@ -11,4 +12,5 @@ public interface IUnideDriver
     GameObject FindChildByNameDepth(GameObject element, string name);
     GameObject FindChildByTagDepth(GameObject element, string tag);
     GameObject FindChildByComponentDepth<TComponent>(GameObject element) where TComponent : Component;
+    UniTask CaptureScreenshot(string filePath);
 }
