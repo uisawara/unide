@@ -7,13 +7,11 @@ namespace Samples.Sample_uGUI.Tests
 {
     public sealed class SampleuGUISceneWithViewObjectTests
     {
-        private readonly IUnideDriver D;
         private readonly SampleuGUISceneAndViewObject _sceneObject;
 
         public SampleuGUISceneWithViewObjectTests()
         {
-            D = new UnideDriver();
-            _sceneObject = new SampleuGUISceneAndViewObject(D);
+            _sceneObject = new SampleuGUISceneAndViewObject(new UnideDriver());
         }
         
         [OneTimeSetUp]
