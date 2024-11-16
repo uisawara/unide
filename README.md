@@ -1,7 +1,5 @@
 # Unide
 
----
-
 ![IMAGE](https://github.com/uisawara/unide/blob/main/CodeCoverage/Report/badge_combined.svg)
 
 Unity開発におけるUI自動テストを試行錯誤するUnity Package
