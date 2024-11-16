@@ -28,6 +28,16 @@ namespace Samples.Sample_uGUI.Tests
         }
     
         [UnityTest]
+        public IEnumerator 全列挙できる() => UniTask.ToCoroutine(async () =>
+        {
+            var all = D.FindAll();
+            foreach (var item in all)
+            {
+                Debug.Log($"name: {item.name}");
+            }
+        });
+
+        [UnityTest]
         public IEnumerator Nameで検索できる() => UniTask.ToCoroutine(async () =>
         {
             await Q.ByName("TopPage");

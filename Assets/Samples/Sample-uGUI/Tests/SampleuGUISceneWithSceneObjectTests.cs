@@ -41,7 +41,7 @@ namespace Samples.Sample_uGUI.Tests
             await _sceneObject.SubPageB
                 .ShouldBe(Condition.Inactive);
 
-            await _sceneObject.BackButton
+            await _sceneObject.SubPageABackButton
                 .Click();
             await _sceneObject.TopPage
                 .ShouldBe(Condition.Active);
@@ -70,7 +70,7 @@ namespace Samples.Sample_uGUI.Tests
             await _sceneObject.SubPageB
                 .ShouldBe(Condition.Active);
 
-            await _sceneObject.BackButton
+            await _sceneObject.SubPageBBackButton
                 .Click();
             await _sceneObject.TopPage
                 .ShouldBe(Condition.Active);
@@ -95,7 +95,8 @@ public sealed class SampleuGUISceneObject : SceneObjectBase
     public UniTask<UnideQuery> TopPage => Q.ByName("TopPage");
     public UniTask<UnideQuery> SubPageA => Q.ByName("SubPageA");
     public UniTask<UnideQuery> SubPageB => Q.ByName("SubPageB");
-    public UniTask<UnideQuery> SubPageAButton => Q.ByName("SubPageAButton");
-    public UniTask<UnideQuery> SubPageBButton => Q.ByName("SubPageBButton");
-    public UniTask<UnideQuery> BackButton => Q.ByName("BackButton");
+    public UniTask<UnideQuery> SubPageAButton => TopPage.ByName("SubPageAButton");
+    public UniTask<UnideQuery> SubPageBButton => TopPage.ByName("SubPageBButton");
+    public UniTask<UnideQuery> SubPageABackButton => SubPageA.ByName("BackButton");
+    public UniTask<UnideQuery> SubPageBBackButton => SubPageB.ByName("BackButton");
 }

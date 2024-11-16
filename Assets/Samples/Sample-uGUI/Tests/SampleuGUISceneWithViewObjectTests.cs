@@ -105,8 +105,8 @@ public sealed class SampleuGUISceneAndViewObject : SceneObjectBase
         public TopPageObject(SceneObjectBase sceneObject) : base(sceneObject)
         { }
         public UniTask<UnideQuery> Page => Q.ByName("TopPage");
-        public UniTask<UnideQuery> SubPageAButton => Q.ByName("SubPageAButton");
-        public UniTask<UnideQuery> SubPageBButton => Q.ByName("SubPageBButton");
+        public UniTask<UnideQuery> SubPageAButton => Page.ByName("SubPageAButton");
+        public UniTask<UnideQuery> SubPageBButton => Page.ByName("SubPageBButton");
     }
     
     public sealed class SubPageAObject : ViewObjectBase
@@ -114,7 +114,7 @@ public sealed class SampleuGUISceneAndViewObject : SceneObjectBase
         public SubPageAObject(SceneObjectBase sceneObject) : base(sceneObject)
         { }
         public UniTask<UnideQuery> Page => Q.ByName("SubPageA");
-        public UniTask<UnideQuery> BackButton => Q.ByName("BackButton");
+        public UniTask<UnideQuery> BackButton => Page.ByName("BackButton");
     }
     
     public sealed class SubPageBObject : ViewObjectBase
@@ -122,6 +122,6 @@ public sealed class SampleuGUISceneAndViewObject : SceneObjectBase
         public SubPageBObject(SceneObjectBase sceneObject) : base(sceneObject)
         { }
         public UniTask<UnideQuery> Page => Q.ByName("SubPageB");
-        public UniTask<UnideQuery> BackButton => Q.ByName("BackButton");
+        public UniTask<UnideQuery> BackButton => Page.ByName("BackButton");
     }
 }
