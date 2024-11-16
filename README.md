@@ -1,6 +1,10 @@
+# Unide
+
+---
+
 ![IMAGE](https://github.com/uisawara/unide/blob/main/CodeCoverage/Report/badge_combined.svg)
 
-# Introduction
+Unity開発におけるUI自動テストを試行錯誤するUnity Package
 
 selenideに影響を受け Unity3D向けのUIテストを気軽に書けるようにしたいと実験的に作ったPackageです。
 以下のようにしていきたいです。
