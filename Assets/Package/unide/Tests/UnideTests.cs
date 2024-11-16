@@ -118,6 +118,25 @@ namespace Samples.Sample_uGUI.Tests
         });
 
         [UnityTest]
+        public IEnumerator ShouldHaveでInputFieldを確認できる() => UniTask.ToCoroutine(async () =>
+        {
+            await Q.ByName("InputFieldA")
+                .SetValue("input value");
+            await Q.ByName("InputFieldA")
+                .ShouldHave("input value");
+        });
+
+        [UnityTest]
+        public IEnumerator InputFieldに入力テキストを設定できる() => UniTask.ToCoroutine(async () =>
+        {
+            await Q.ByName("InputFieldA")
+                .SetValue("input value 1");
+            var value = await Q.ByName("InputFieldA")
+                .GetValue();
+            Assert.AreEqual("input value 1", value);
+        });
+
+        [UnityTest]
         public IEnumerator ShouldHaveでtextが成立せず例外がでる() => UniTask.ToCoroutine(async () =>
         {
             var throwsException = false;

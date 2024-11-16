@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -117,8 +118,105 @@ public static class UnideValidationExtensions
     {
         var context = await self;
         await UniTask.WaitUntil(() => 
-                text.Equals(context.Target.GetComponent<TextMeshProUGUI>()?.text))
+                text.Equals(new TextElement(context.Target).GetText()))
             .WithTimeout(context.Timeout);
+    }
+}
+
+public sealed class TextElement
+{
+    public GameObject Target { get; }
+
+    private TextMesh _textMesh;
+    private TextMeshPro _textPro;
+    private TextMeshProUGUI _textUGUI;
+    private InputField _inputField;
+    private TMP_InputField _tmpInputField;
+    
+    private enum Types
+    {
+        TextMesh,
+        TextMeshPro,
+        TextMeshProUGUI,
+        InputField,
+        TMP_InputField,
+    }
+
+    private Types _type;
+    
+    public TextElement(GameObject target)
+    {
+        Target = target;
+        _textMesh = Target.GetComponent<TextMesh>();
+        if (_textMesh == null)
+        {
+            // Target.GetComponent<TextMesh>() を呼び出した結果が null だった場合、nullではあるがExceptionメッセージを含むオブジェクトが返ってくる。
+            // これがTextMeshPro,InputField等と挙動が違っているのを解消するため、明示的にnull代入をやり直すことで対策にしている。
+            _textMesh = null;
+        }
+        _textPro = Target.GetComponent<TextMeshPro>();
+        _textUGUI = Target.GetComponent<TextMeshProUGUI>();
+        _inputField = Target.GetComponent<InputField>();
+        _tmpInputField = Target.GetComponent<TMP_InputField>();
+        object[] objs = { _textMesh, _textPro, _textUGUI, _inputField, _tmpInputField };
+        var count = objs.Where(o => o != null)
+            .Count();
+        if (count != 1)
+        {
+            throw new ArgumentException($"GameObject have too many text components: count={count}");
+        }
+
+        _type = (Types)objs.Select((o, i) => new { o, i })
+            .First(x => x.o != null)
+            .i;
+    }
+
+    public string GetText()
+    {
+        switch (_type)
+        {
+            case Types.TextMesh:
+                return _textMesh.text;
+                break;
+            case Types.TextMeshPro:
+                return _textPro.text;
+                break;
+            case Types.TextMeshProUGUI:
+                return _textUGUI.text;
+                break;
+            case Types.InputField:
+                return _inputField.text;
+                break;
+            case Types.TMP_InputField:
+                return _tmpInputField.text;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    public void SetText(string text)
+    {
+        switch (_type)
+        {
+            case Types.TextMesh:
+                _textMesh.text = text;
+                break;
+            case Types.TextMeshPro:
+                _textPro.text = text;
+                break;
+            case Types.TextMeshProUGUI:
+                _textUGUI.text = text;
+                break;
+            case Types.InputField:
+                _inputField.text = text;
+                break;
+            case Types.TMP_InputField:
+                _tmpInputField.text = text;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 }
 
@@ -128,8 +226,24 @@ public static class UnideComponentActionExtensions
     {
         var context = await self;
         await UniTask.Delay(context.Delay);
-        var button = context.Target.GetComponent<Button>();
-        button.onClick.Invoke();
+        var component = context.Target.GetComponent<Button>();
+        component.onClick.Invoke();
+    }
+    
+    public static async UniTask SetValue(this UniTask<UnideQuery> self, string text)
+    {
+        var context = await self;
+        await UniTask.Delay(context.Delay);
+        var component = new TextElement(context.Target);
+        component.SetText(text);
+    }
+    
+    public static async UniTask<string> GetValue(this UniTask<UnideQuery> self)
+    {
+        var context = await self;
+        await UniTask.Delay(context.Delay);
+        var component = new TextElement(context.Target);
+        return component.GetText();
     }
 }
 
