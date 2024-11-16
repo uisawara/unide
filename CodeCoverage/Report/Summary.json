@@ -1,33 +1,34 @@
 {
   "summary": {
-    "generatedon": "2024-11-15T13:14:35Z",
+    "generatedon": "2024-11-16T01:12:38Z",
     "parser": "MultiReportParser (2x OpenCoverParser)",
     "assemblies": 4,
-    "classes": 20,
+    "classes": 21,
     "files": 12,
-    "coveredlines": 398,
-    "uncoveredlines": 16,
-    "coverablelines": 414,
-    "totallines": 833,
-    "linecoverage": 96.1,
+    "coveredlines": 253,
+    "uncoveredlines": 228,
+    "coverablelines": 481,
+    "totallines": 966,
+    "linecoverage": 52.5,
     "coveredbranches": 0,
     "totalbranches": 0,
-    "coveredmethods": 120,
-    "totalmethods": 122,
-    "methodcoverage": 98.3
+    "coveredmethods": 80,
+    "totalmethods": 132,
+    "methodcoverage": 60.6
  },
   "coverage": {
     "assemblies": [
-      { "name": "unide", "classes": 10, "coverage": 98.4, "coveredlines": 126, "coverablelines": 128, "totallines": 1020, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 97.3, "coveredmethods": 37, "totalmethods": 38, "classesinassembly": [
+      { "name": "unide", "classes": 11, "coverage": 46.7, "coveredlines": 86, "coverablelines": 184, "totallines": 1964, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 68.1, "coveredmethods": 30, "totalmethods": 44, "classesinassembly": [
         { "name": "SceneObjectBase", "coverage": 100, "coveredlines": 11, "coverablelines": 11, "totallines": 35, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 5, "totalmethods": 5 },
-        { "name": "UnideComponentActionExtensions", "coverage": 100, "coveredlines": 6, "coverablelines": 6, "totallines": 146, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 1, "totalmethods": 1 },
-        { "name": "UnideDriver", "coverage": 100, "coveredlines": 31, "coverablelines": 31, "totallines": 52, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 6, "totalmethods": 6 },
-        { "name": "UnideQuery", "coverage": 100, "coveredlines": 10, "coverablelines": 10, "totallines": 146, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 8, "totalmethods": 8 },
-        { "name": "UnideQueryExtensions", "coverage": 100, "coveredlines": 20, "coverablelines": 20, "totallines": 146, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 3, "totalmethods": 3 },
-        { "name": "UnideQueryMethodChainExtensions", "coverage": 100, "coveredlines": 10, "coverablelines": 10, "totallines": 146, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 2, "totalmethods": 2 },
+        { "name": "TextElement", "coverage": 0, "coveredlines": 0, "coverablelines": 44, "totallines": 260, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 4 },
+        { "name": "UnideComponentActionExtensions", "coverage": 33.3, "coveredlines": 6, "coverablelines": 18, "totallines": 260, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 33.3, "coveredmethods": 1, "totalmethods": 3 },
+        { "name": "UnideDriver", "coverage": 80.6, "coveredlines": 25, "coverablelines": 31, "totallines": 52, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 66.6, "coveredmethods": 4, "totalmethods": 6 },
+        { "name": "UnideQuery", "coverage": 100, "coveredlines": 10, "coverablelines": 10, "totallines": 260, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 8, "totalmethods": 8 },
+        { "name": "UnideQueryExtensions", "coverage": 35, "coveredlines": 7, "coverablelines": 20, "totallines": 260, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 33.3, "coveredmethods": 1, "totalmethods": 3 },
+        { "name": "UnideQueryMethodChainExtensions", "coverage": 0, "coveredlines": 0, "coverablelines": 10, "totallines": 260, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 2 },
         { "name": "UnideQuerySource", "coverage": 100, "coveredlines": 10, "coverablelines": 10, "totallines": 22, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 7, "totalmethods": 7 },
-        { "name": "UnideValidationExtensions", "coverage": 94.4, "coveredlines": 17, "coverablelines": 18, "totallines": 146, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 2, "totalmethods": 2 },
-        { "name": "UniTaskTimeoutExtensions", "coverage": 100, "coveredlines": 6, "coverablelines": 6, "totallines": 146, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 1, "totalmethods": 1 },
+        { "name": "UnideValidationExtensions", "coverage": 44.4, "coveredlines": 8, "coverablelines": 18, "totallines": 260, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 50, "coveredmethods": 1, "totalmethods": 2 },
+        { "name": "UniTaskTimeoutExtensions", "coverage": 66.6, "coveredlines": 4, "coverablelines": 6, "totallines": 260, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 1, "totalmethods": 1 },
         { "name": "ViewObjectBase", "coverage": 83.3, "coveredlines": 5, "coverablelines": 6, "totallines": 35, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 66.6, "coveredmethods": 2, "totalmethods": 3 } ] },
       { "name": "unide.Sample-uGUI", "classes": 4, "coverage": 72.2, "coveredlines": 26, "coverablelines": 36, "totallines": 87, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 88.8, "coveredmethods": 8, "totalmethods": 9, "classesinassembly": [
         { "name": "ChildSwitcher", "coverage": 100, "coveredlines": 14, "coverablelines": 14, "totallines": 27, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 2, "totalmethods": 2 },
@@ -40,7 +41,7 @@
         { "name": "Samples.Sample_uGUI.Tests.SampleuGUISceneWithViewObjectTests", "coverage": 100, "coveredlines": 36, "coverablelines": 36, "totallines": 127, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 6, "totalmethods": 6 },
         { "name": "SampleuGUISceneAndViewObject", "coverage": 100, "coveredlines": 23, "coverablelines": 23, "totallines": 127, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 15, "totalmethods": 15 },
         { "name": "SampleuGUISceneObject", "coverage": 100, "coveredlines": 9, "coverablelines": 9, "totallines": 101, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 8, "totalmethods": 8 } ] },
-      { "name": "unide.Tests", "classes": 1, "coverage": 96.3, "coveredlines": 105, "coverablelines": 109, "totallines": 178, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 33, "totalmethods": 33, "classesinassembly": [
-        { "name": "Samples.Sample_uGUI.Tests.UnideTests", "coverage": 96.3, "coveredlines": 105, "coverablelines": 109, "totallines": 178, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 100, "coveredmethods": 33, "totalmethods": 33 } ] } ]
+      { "name": "unide.Tests", "classes": 1, "coverage": 0, "coveredlines": 0, "coverablelines": 120, "totallines": 197, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 37, "classesinassembly": [
+        { "name": "Samples.Sample_uGUI.Tests.UnideTests", "coverage": 0, "coveredlines": 0, "coverablelines": 120, "totallines": 197, "branchcoverage": null, "coveredbranches": 0, "totalbranches": 0, "methodcoverage": 0, "coveredmethods": 0, "totalmethods": 37 } ] } ]
   }
 }
