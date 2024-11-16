@@ -2,7 +2,7 @@
 
 # Introduction
 
-selenideに影響を受け Unity3D向けのUIテストを気軽に書けるようにしたいと考え、実験的に作ったPackageです。
+selenideに影響を受け Unity3D向けのUIテストを気軽に書けるようにしたいと実験的に作ったPackageです。
 以下のようにしていきたいです。
 
 - シンプルに使い始められる。
@@ -28,28 +28,26 @@ selenideに影響を受け Unity3D向けのUIテストを気軽に書けるよ�
 
 * 判断時の優先度は以下を想定しています。
   * 利用側の書きやすさ・間違いにくさ＞Package内の可読性＞パフォーマンス
-* 多用する記述に対して”極端な”簡略表現をすることを良しとします。(GameObject検索クエリ開始の表現である 'Q' など)
+* 多用する記述に対して”極端な”簡略表現をすることを良しとします。
+  * (GameObject検索クエリ開始の表現である 'Q' など)
 
 ## 機能
 
 - UI要素のクエリ
 - UI要素の操作
 - UI要素のバリデーション
+- Delay,Timeout設定
 - スクリーンショット
   - Click前の自動スクリーンショット取得
-
-## 現状の制約
-
-* uGUI向け
+- 対応するUIFramework
+  - uGUI向け
 
 # Installation
 
-## 依存関係
-
-UniTaskが必要なので[こちら](https://github.com/Cysharp/UniTask)を参考にインストール
-
 ## Install via UPM (using Git URL)
 
+* UniTaskが必要なので[こちら](https://github.com/Cysharp/UniTask)を参照しつつインストール
+* 続けてunideをインストール
 ```
 https://github.com/uisawara/unide.git?path=Assets/Package/unide
 ```
