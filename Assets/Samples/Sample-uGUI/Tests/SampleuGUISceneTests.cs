@@ -43,7 +43,8 @@ namespace Samples.Sample_uGUI.Tests
             await Q.ByName("SubPageB")
                 .ShouldBe(Condition.Inactive);
 
-            await Q.ByName("BackButton")
+            await Q.ByName("SubPageA")
+                .ByName("BackButton")
                 .Click();
             await Q.ByName("TopPage")
                 .ShouldBe(Condition.Active);
@@ -72,7 +73,8 @@ namespace Samples.Sample_uGUI.Tests
             await Q.ByName("SubPageB")
                 .ShouldBe(Condition.Active);
 
-            await Q.ByName("BackButton")
+            await Q.ByName("SubPageB")
+                .ByName("BackButton")
                 .Click();
             await Q.ByName("TopPage")
                 .ShouldBe(Condition.Active);

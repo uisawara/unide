@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageReport scope="Summary">
   <Summary>
-    <Generatedon>2024/11/16 - 10:12:38</Generatedon>
+    <Generatedon>2024/11/16 - 11:39:16</Generatedon>
     <Parser>MultiReportParser (2x OpenCoverParser)</Parser>
     <Assemblies>4</Assemblies>
     <Classes>21</Classes>
     <Files>12</Files>
-    <Coveredlines>253</Coveredlines>
-    <Uncoveredlines>228</Uncoveredlines>
-    <Coverablelines>481</Coverablelines>
-    <Totallines>966</Totallines>
-    <Linecoverage>52.5</Linecoverage>
+    <Coveredlines>484</Coveredlines>
+    <Uncoveredlines>51</Uncoveredlines>
+    <Coverablelines>535</Coverablelines>
+    <Totallines>1052</Totallines>
+    <Linecoverage>90.4</Linecoverage>
     <Coveredbranches>0</Coveredbranches>
     <Totalbranches>0</Totalbranches>
-    <Coveredmethods>80</Coveredmethods>
-    <Totalmethods>132</Totalmethods>
-    <Methodcoverage>60.6</Methodcoverage>
+    <Coveredmethods>135</Coveredmethods>
+    <Totalmethods>138</Totalmethods>
+    <Methodcoverage>97.8</Methodcoverage>
   </Summary>
   <Coverage>
-    <Assembly name="unide" classes="11" coverage="46.7" coveredlines="86" coverablelines="184" totallines="1964" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="30" totalmethods="44" methodcoverage="68.1">
+    <Assembly name="unide" classes="11" coverage="83.4" coveredlines="191" coverablelines="229" totallines="2217" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="44" totalmethods="47" methodcoverage="93.6">
       <Class name="SceneObjectBase" coverage="100" coveredlines="11" coverablelines="11" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="5" totalmethods="5" methodcoverage="100" />
-      <Class name="TextElement" coverage="0" coveredlines="0" coverablelines="44" totallines="260" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="4" methodcoverage="0" />
-      <Class name="UnideComponentActionExtensions" coverage="33.3" coveredlines="6" coverablelines="18" totallines="260" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="3" methodcoverage="33.3" />
-      <Class name="UnideDriver" coverage="80.6" coveredlines="25" coverablelines="31" totallines="52" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="6" methodcoverage="66.6" />
-      <Class name="UnideQuery" coverage="100" coveredlines="10" coverablelines="10" totallines="260" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="8" methodcoverage="100" />
-      <Class name="UnideQueryExtensions" coverage="35" coveredlines="7" coverablelines="20" totallines="260" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="3" methodcoverage="33.3" />
-      <Class name="UnideQueryMethodChainExtensions" coverage="0" coveredlines="0" coverablelines="10" totallines="260" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="2" methodcoverage="0" />
+      <Class name="TextElement" coverage="65.9" coveredlines="29" coverablelines="44" totallines="290" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="4" totalmethods="4" methodcoverage="100" />
+      <Class name="UnideComponentActionExtensions" coverage="100" coveredlines="18" coverablelines="18" totallines="290" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
+      <Class name="UnideDriver" coverage="73.3" coveredlines="44" coverablelines="60" totallines="95" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="9" methodcoverage="77.7" />
+      <Class name="UnideQuery" coverage="100" coveredlines="10" coverablelines="10" totallines="290" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="8" methodcoverage="100" />
+      <Class name="UnideQueryExtensions" coverage="86.1" coveredlines="31" coverablelines="36" totallines="290" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
+      <Class name="UnideQueryMethodChainExtensions" coverage="100" coveredlines="10" coverablelines="10" totallines="290" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
       <Class name="UnideQuerySource" coverage="100" coveredlines="10" coverablelines="10" totallines="22" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
-      <Class name="UnideValidationExtensions" coverage="44.4" coveredlines="8" coverablelines="18" totallines="260" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="2" methodcoverage="50" />
-      <Class name="UniTaskTimeoutExtensions" coverage="66.6" coveredlines="4" coverablelines="6" totallines="260" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
+      <Class name="UnideValidationExtensions" coverage="94.4" coveredlines="17" coverablelines="18" totallines="290" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
+      <Class name="UniTaskTimeoutExtensions" coverage="100" coveredlines="6" coverablelines="6" totallines="290" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="1" methodcoverage="100" />
       <Class name="ViewObjectBase" coverage="83.3" coveredlines="5" coverablelines="6" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="3" methodcoverage="66.6" />
     </Assembly>
-    <Assembly name="unide.Sample-uGUI" classes="4" coverage="72.2" coveredlines="26" coverablelines="36" totallines="87" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="9" methodcoverage="88.8">
+    <Assembly name="unide.Sample-uGUI" classes="4" coverage="75" coveredlines="27" coverablelines="36" totallines="87" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="9" totalmethods="9" methodcoverage="100">
       <Class name="ChildSwitcher" coverage="100" coveredlines="14" coverablelines="14" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
       <Class name="SubPageA" coverage="57.1" coveredlines="4" coverablelines="7" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
-      <Class name="SubPageB" coverage="42.8" coveredlines="3" coverablelines="7" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="1" totalmethods="2" methodcoverage="50" />
+      <Class name="SubPageB" coverage="57.1" coveredlines="4" coverablelines="7" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="2" totalmethods="2" methodcoverage="100" />
       <Class name="TopPage" coverage="62.5" coveredlines="5" coverablelines="8" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="3" totalmethods="3" methodcoverage="100" />
     </Assembly>
-    <Assembly name="unide.Sample-uGUI.Tests" classes="5" coverage="100" coveredlines="141" coverablelines="141" totallines="541" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="42" totalmethods="42" methodcoverage="100">
-      <Class name="Samples.Sample_uGUI.Tests.SampleuGUISceneTests" coverage="100" coveredlines="37" coverablelines="37" totallines="85" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
-      <Class name="Samples.Sample_uGUI.Tests.SampleuGUISceneWithSceneObjectTests" coverage="100" coveredlines="36" coverablelines="36" totallines="101" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
+    <Assembly name="unide.Sample-uGUI.Tests" classes="5" coverage="100" coveredlines="142" coverablelines="142" totallines="545" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="43" totalmethods="43" methodcoverage="100">
+      <Class name="Samples.Sample_uGUI.Tests.SampleuGUISceneTests" coverage="100" coveredlines="37" coverablelines="37" totallines="87" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="7" totalmethods="7" methodcoverage="100" />
+      <Class name="Samples.Sample_uGUI.Tests.SampleuGUISceneWithSceneObjectTests" coverage="100" coveredlines="36" coverablelines="36" totallines="102" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
       <Class name="Samples.Sample_uGUI.Tests.SampleuGUISceneWithViewObjectTests" coverage="100" coveredlines="36" coverablelines="36" totallines="127" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="6" totalmethods="6" methodcoverage="100" />
       <Class name="SampleuGUISceneAndViewObject" coverage="100" coveredlines="23" coverablelines="23" totallines="127" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="15" totalmethods="15" methodcoverage="100" />
-      <Class name="SampleuGUISceneObject" coverage="100" coveredlines="9" coverablelines="9" totallines="101" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="8" totalmethods="8" methodcoverage="100" />
+      <Class name="SampleuGUISceneObject" coverage="100" coveredlines="10" coverablelines="10" totallines="102" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="9" totalmethods="9" methodcoverage="100" />
     </Assembly>
-    <Assembly name="unide.Tests" classes="1" coverage="0" coveredlines="0" coverablelines="120" totallines="197" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="37" methodcoverage="0">
-      <Class name="Samples.Sample_uGUI.Tests.UnideTests" coverage="0" coveredlines="0" coverablelines="120" totallines="197" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="0" totalmethods="37" methodcoverage="0" />
+    <Assembly name="unide.Tests" classes="1" coverage="96.8" coveredlines="124" coverablelines="128" totallines="207" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="39" totalmethods="39" methodcoverage="100">
+      <Class name="Samples.Sample_uGUI.Tests.UnideTests" coverage="96.8" coveredlines="124" coverablelines="128" totallines="207" branchcoverage="" coveredbranches="0" totalbranches="0" coveredmethods="39" totalmethods="39" methodcoverage="100" />
     </Assembly>
   </Coverage>
 </CoverageReport>

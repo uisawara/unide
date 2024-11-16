@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,6 +31,48 @@ public sealed class UnideDriver : IUnideDriver
     public GameObject FindObjectByComponent<TComponent>() where TComponent : Component
     {
         return FindAll().Where(obj => obj.gameObject.GetComponent<TComponent>()).First();
+    }
+
+    public GameObject FindChildByNameDepth(GameObject element, string name)
+    {
+        foreach (Transform transform in element.transform)
+        {
+            if (transform.gameObject.name == name)
+            {
+                return transform.gameObject;
+            }
+            var result = FindChildByNameDepth(transform.gameObject, name);
+            if (result != null)
+            {
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    public GameObject FindChildByTagDepth(GameObject element, string tag)
+    {
+        foreach (Transform transform in element.transform)
+        {
+            if (transform.gameObject.tag == tag)
+            {
+                return transform.gameObject;
+            }
+            var result = FindChildByTagDepth(transform.gameObject, tag);
+            if (result != null)
+            {
+                return result;
+            }
+        }
+
+        return null;
+    }
+
+    public GameObject FindChildByComponentDepth<TComponent>(GameObject element) where TComponent : Component
+    {
+        return element.GetComponentInChildren<TComponent>()
+            .gameObject;
     }
 
     private void EnumGameObject(List<GameObject> results)
