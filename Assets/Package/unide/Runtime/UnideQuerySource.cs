@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.IO;
+using Cysharp.Threading.Tasks;
 
 public sealed class UnideQuerySource
 {
@@ -18,5 +19,21 @@ public sealed class UnideQuerySource
     public UniTask<UnideQuery> CreateQueryContext()
     {
         return UniTask.FromResult(new UnideQuery(this));
+    }
+
+    public bool EnableCaptureScreenshotBeforeClick { get; set; }
+    public string BaseScreenshotPath { get; set; }
+    public string ScreenshotPrefix { get; set; } = string.Empty;
+
+    private int _screenshotCaptureCounter;
+
+    public string TakeScreenshotFilePath(string baseFileName = null)
+    {
+        if (string.IsNullOrEmpty(baseFileName)) baseFileName = $"{ScreenshotPrefix}{_screenshotCaptureCounter:D8}.png";
+
+        var filePath = Path.Combine(BaseScreenshotPath, baseFileName);
+        _screenshotCaptureCounter++;
+
+        return filePath;
     }
 }

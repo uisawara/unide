@@ -7,18 +7,18 @@ using UnityEngine.UI;
 
 public sealed class UnideQuery
 {
-    public IUnideDriver TestDriver { get; }
-
+    public UnideQuerySource QuerySource { get; }
+    public IUnideDriver TestDriver => QuerySource.TestDriver;
+    
     public GameObject Target { get; set; }
     public int Timeout { get; set; }
     public int Delay { get; set; }
 
-
     public UnideQuery(UnideQuerySource querySource)
     {
-        TestDriver = querySource.TestDriver;
-        Timeout = querySource.Timeout;
-        Delay = querySource.Delay;
+        QuerySource = querySource;
+        Timeout = QuerySource.Timeout;
+        Delay = QuerySource.Delay;
     }
 }
 
@@ -54,7 +54,7 @@ public static class UnideQueryExtensions
         else
         {
             await UniTask.WaitWhile(() => context.TestDriver.FindChildByNameDepth(context.Target, name) == null)
-                .WithTimeout(context.Timeout);
+                .WithTimeout(context.Timeout); 
             var gameObject = context.TestDriver.FindChildByNameDepth(context.Target, name);
             context.Target = gameObject;
         }
@@ -207,19 +207,14 @@ public sealed class TextElement
         {
             case Types.TextMesh:
                 return _textMesh.text;
-                break;
             case Types.TextMeshPro:
                 return _textPro.text;
-                break;
             case Types.TextMeshProUGUI:
                 return _textUGUI.text;
-                break;
             case Types.InputField:
                 return _inputField.text;
-                break;
             case Types.TMP_InputField:
                 return _tmpInputField.text;
-                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -255,6 +250,10 @@ public static class UnideComponentActionExtensions
     public static async UniTask Click(this UniTask<UnideQuery> self)
     {
         var context = await self;
+        if (context.QuerySource.EnableCaptureScreenshotBeforeClick)
+        {
+            await context.TestDriver.CaptureScreenshot(context.QuerySource.TakeScreenshotFilePath());
+        }
         await UniTask.Delay(context.Delay);
         var component = context.Target.GetComponent<Button>();
         component.onClick.Invoke();
