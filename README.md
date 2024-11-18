@@ -7,11 +7,14 @@ Unity開発におけるUI自動テストを試行錯誤するUnity Package
 selenideに影響を受け Unity3D向けのUIテストを気軽に書けるようにしたいと実験的に作ったPackageです。
 以下のようにしていきたいです。
 
-- シンプルに使い始められる。
+- 手間少なく導入して使い始められる。
 - 短く書ける。
 - 扱いやすくメンテナンス”されやすい”自動テストコードを目指す。
 - IDEのコード補完フレンド
 - UTF:Unity Test Frameworkフレンドリ
+- 他フレームワークと組み合わせやすい。
+  - テストクラスに特別な基底クラスを必要としない。
+
 
 ## 前提
 
@@ -32,6 +35,8 @@ selenideに影響を受け Unity3D向けのUIテストを気軽に書けるよ�
   * 利用側の書きやすさ・間違いにくさ＞Package内の可読性＞パフォーマンス
 * 多用する記述に対して”極端な”簡略表現をすることを良しとします。
   * (GameObject検索クエリ開始の表現である 'Q' など)
+* 命名時はユーザー目線＞エンジニア目線の順で設計判断する。
+  * (gameObject.GetComponent<TextMesh>.GetValue() より TextElement(gameObject).GetText()のように抽象化して扱えるのを優先する)
 
 ## 機能
 
@@ -41,7 +46,7 @@ selenideに影響を受け Unity3D向けのUIテストを気軽に書けるよ�
 - Delay,Timeout設定
 - スクリーンショット
   - Click前の自動スクリーンショット取得
-- 対応するUIFramework
+- 対応するUI Framework
   - uGUI向け
 
 # Installation

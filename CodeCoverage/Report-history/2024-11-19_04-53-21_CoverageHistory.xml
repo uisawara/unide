@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2024-11-19_04-53-21" tag="">
+  <assembly name="unide">
+    <class name="FloatElement" coveredlines="0" coverablelines="12" totallines="328" coveredbranches="0" totalbranches="0" />
+    <class name="SceneObjectBase" coveredlines="0" coverablelines="11" totallines="35" coveredbranches="0" totalbranches="0" />
+    <class name="TextElement" coveredlines="0" coverablelines="44" totallines="328" coveredbranches="0" totalbranches="0" />
+    <class name="UnideComponentActionExtensions" coveredlines="2" coverablelines="34" totallines="328" coveredbranches="0" totalbranches="0" />
+    <class name="UnideDriver" coveredlines="3" coverablelines="66" totallines="105" coveredbranches="0" totalbranches="0" />
+    <class name="UnideQuery" coveredlines="10" coverablelines="11" totallines="328" coveredbranches="0" totalbranches="0" />
+    <class name="UnideQueryExtensions" coveredlines="5" coverablelines="36" totallines="328" coveredbranches="0" totalbranches="0" />
+    <class name="UnideQueryMethodChainExtensions" coveredlines="0" coverablelines="10" totallines="328" coveredbranches="0" totalbranches="0" />
+    <class name="UnideQuerySource" coveredlines="10" coverablelines="19" totallines="39" coveredbranches="0" totalbranches="0" />
+    <class name="UnideValidationExtensions" coveredlines="0" coverablelines="18" totallines="328" coveredbranches="0" totalbranches="0" />
+    <class name="UniTaskTimeoutExtensions" coveredlines="3" coverablelines="6" totallines="328" coveredbranches="0" totalbranches="0" />
+    <class name="ViewObjectBase" coveredlines="0" coverablelines="6" totallines="35" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="unide.Sample-uGUI">
+    <class name="ChildSwitcher" coveredlines="14" coverablelines="14" totallines="27" coveredbranches="0" totalbranches="0" />
+    <class name="SubPageA" coveredlines="3" coverablelines="7" totallines="20" coveredbranches="0" totalbranches="0" />
+    <class name="SubPageB" coveredlines="3" coverablelines="7" totallines="20" coveredbranches="0" totalbranches="0" />
+    <class name="TopPage" coveredlines="5" coverablelines="17" totallines="37" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="unide.Sample-uGUI.Tests">
+    <class name="Samples.Sample_uGUI.Tests.SampleuGUISceneTests" coveredlines="0" coverablelines="39" totallines="91" coveredbranches="0" totalbranches="0" />
+    <class name="Samples.Sample_uGUI.Tests.SampleuGUISceneWithSceneObjectTests" coveredlines="0" coverablelines="35" totallines="100" coveredbranches="0" totalbranches="0" />
+    <class name="Samples.Sample_uGUI.Tests.SampleuGUISceneWithViewObjectTests" coveredlines="0" coverablelines="35" totallines="125" coveredbranches="0" totalbranches="0" />
+    <class name="SampleuGUISceneAndViewObject" coveredlines="0" coverablelines="23" totallines="125" coveredbranches="0" totalbranches="0" />
+    <class name="SampleuGUISceneObject" coveredlines="0" coverablelines="10" totallines="100" coveredbranches="0" totalbranches="0" />
+  </assembly>
+  <assembly name="unide.Tests">
+    <class name="Samples.Sample_uGUI.Tests.UnideTests" coveredlines="12" coverablelines="137" totallines="223" coveredbranches="0" totalbranches="0" />
+  </assembly>
+</coverage>
