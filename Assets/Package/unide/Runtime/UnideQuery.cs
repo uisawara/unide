@@ -245,6 +245,29 @@ public sealed class TextElement
     }
 }
 
+public sealed class FloatElement
+{
+    public GameObject Target { get; }
+
+    private Slider _slider;
+    
+    public FloatElement(GameObject target)
+    {
+        Target = target;
+        _slider = Target.GetComponent<Slider>();
+    }
+
+    public float GetValue()
+    {
+        return _slider.value;
+    }
+
+    public void SetValue(float value)
+    {
+        _slider.value = value;
+    }
+}
+
 public static class UnideComponentActionExtensions
 {
     public static async UniTask Click(this UniTask<UnideQuery> self)
@@ -273,6 +296,22 @@ public static class UnideComponentActionExtensions
         await UniTask.Delay(context.Delay);
         var component = new TextElement(context.Target);
         return component.GetText();
+    }
+    
+    public static async UniTask SetValue(this UniTask<UnideQuery> self, float value)
+    {
+        var context = await self;
+        await UniTask.Delay(context.Delay);
+        var component = new FloatElement(context.Target);
+        component.SetValue(value);
+    }
+    
+    public static async UniTask<float> GetFloat(this UniTask<UnideQuery> self)
+    {
+        var context = await self;
+        await UniTask.Delay(context.Delay);
+        var component = new FloatElement(context.Target);
+        return component.GetValue();
     }
 }
 

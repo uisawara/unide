@@ -147,6 +147,22 @@ namespace Samples.Sample_uGUI.Tests
         });
 
         [UnityTest]
+        public IEnumerator Sliderに値を設定できる() => UniTask.ToCoroutine(async () =>
+        {
+            await Q.ByName("SliderA")
+                .SetValue(0.1f);
+            var value01 = await Q.ByName("SliderA")
+                .GetFloat();
+            Assert.AreEqual(value01, 0.1f);
+
+            await Q.ByName("SliderA")
+                .SetValue(0.5f);
+            var value05 = await Q.ByName("SliderA")
+                .GetFloat();
+            Assert.AreEqual(value05, 0.5f);
+        });
+        
+        [UnityTest]
         public IEnumerator ShouldHaveでtextが成立せず例外がでる() => UniTask.ToCoroutine(async () =>
         {
             var throwsException = false;
