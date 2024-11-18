@@ -131,7 +131,7 @@ namespace Samples.Sample_uGUI.Tests
         public IEnumerator ShouldHaveでInputFieldを確認できる() => UniTask.ToCoroutine(async () =>
         {
             await Q.ByName("InputFieldA")
-                .SetValue("input value");
+                .SetText("input value");
             await Q.ByName("InputFieldA")
                 .ShouldHave("input value");
         });
@@ -140,9 +140,9 @@ namespace Samples.Sample_uGUI.Tests
         public IEnumerator InputFieldに入力テキストを設定できる() => UniTask.ToCoroutine(async () =>
         {
             await Q.ByName("InputFieldA")
-                .SetValue("input value 1");
+                .SetText("input value 1");
             var value = await Q.ByName("InputFieldA")
-                .GetValue();
+                .GetText();
             Assert.AreEqual("input value 1", value);
         });
 

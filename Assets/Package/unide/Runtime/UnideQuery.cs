@@ -282,7 +282,7 @@ public static class UnideComponentActionExtensions
         component.onClick.Invoke();
     }
     
-    public static async UniTask SetValue(this UniTask<UnideQuery> self, string text)
+    public static async UniTask SetText(this UniTask<UnideQuery> self, string text)
     {
         var context = await self;
         await UniTask.Delay(context.Delay);
@@ -290,7 +290,7 @@ public static class UnideComponentActionExtensions
         component.SetText(text);
     }
     
-    public static async UniTask<string> GetValue(this UniTask<UnideQuery> self)
+    public static async UniTask<string> GetText(this UniTask<UnideQuery> self)
     {
         var context = await self;
         await UniTask.Delay(context.Delay);
