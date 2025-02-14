@@ -1,35 +1,38 @@
 ﻿using Cysharp.Threading.Tasks;
 
-public abstract class SceneObjectBase
+namespace unide
 {
-    public abstract string SceneName { get; }
-
-    private UnideQuerySource QuerySource { get; }
-    
-    public IUnideDriver D { get; }
-    public UniTask<UnideQuery> Q => QuerySource.CreateQueryContext();
-    
-    protected SceneObjectBase(IUnideDriver d)
+    public abstract class SceneObjectBase
     {
-        D = d;
-        QuerySource = new UnideQuerySource(D);
+        public abstract string SceneName { get; }
+
+        private UnideQuerySource QuerySource { get; }
+
+        public IUnideDriver D { get; }
+        public UniTask<UnideQuery> Q => QuerySource.CreateQueryContext();
+
+        protected SceneObjectBase(IUnideDriver d)
+        {
+            D = d;
+            QuerySource = new UnideQuerySource(D);
+        }
+
+        public void Open()
+        {
+            D.Open(SceneName);
+        }
     }
 
-    public void Open()
+    public abstract class ViewObjectBase
     {
-        D.Open(SceneName);
-    }
-}
+        private SceneObjectBase _sceneObject;
 
-public abstract class ViewObjectBase
-{
-    private SceneObjectBase _sceneObject;
+        protected IUnideDriver D => _sceneObject.D;
+        protected UniTask<UnideQuery> Q => _sceneObject.Q;
 
-    protected IUnideDriver D => _sceneObject.D;
-    protected UniTask<UnideQuery> Q => _sceneObject.Q;
-
-    public ViewObjectBase(SceneObjectBase sceneObject)
-    {
-        _sceneObject = sceneObject;
+        public ViewObjectBase(SceneObjectBase sceneObject)
+        {
+            _sceneObject = sceneObject;
+        }
     }
 }
