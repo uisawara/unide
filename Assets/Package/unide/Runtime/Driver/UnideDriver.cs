@@ -21,7 +21,7 @@ public sealed class UnideDriver : IUnideDriver
 
     public GameObject FindObjectByName(string name)
     {
-        return FindAll().Where(obj => obj.name == name).First();
+        return FindAll().Where(obj => obj.name == name).FirstOrDefault();
     }
 
     public GameObject FindObjectByTag(string tag)
@@ -31,7 +31,7 @@ public sealed class UnideDriver : IUnideDriver
 
     public GameObject FindObjectByComponent<TComponent>() where TComponent : Component
     {
-        return FindAll().Where(obj => obj.gameObject.GetComponent<TComponent>()).First();
+        return FindAll().Where(obj => obj.gameObject.GetComponent<TComponent>()).FirstOrDefault();
     }
 
     public GameObject FindChildByNameDepth(GameObject element, string name)
