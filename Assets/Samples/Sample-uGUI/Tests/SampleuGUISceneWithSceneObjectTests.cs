@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Cysharp.Threading.Tasks;
 using NUnit.Framework;
+using unide;
 using UnityEngine.TestTools;
 
 namespace Samples.Sample_uGUI.Tests

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-namespace Samples.Sample_uGUI.Tests
+namespace unide.Tests
 {
     public sealed class UnideTests
     {

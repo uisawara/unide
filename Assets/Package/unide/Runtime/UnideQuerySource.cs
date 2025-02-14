@@ -1,39 +1,43 @@
 ﻿using System.IO;
 using Cysharp.Threading.Tasks;
 
-public sealed class UnideQuerySource
+namespace unide
 {
-    private const int DefaultTimeout = 1000;
-    private const int DefaultDelay = 500;
-
-    public IUnideDriver TestDriver { get; }
-
-    public int Timeout { get; set; } = DefaultTimeout;
-    public int Delay { get; set; } = DefaultDelay;
-
-    public UnideQuerySource(IUnideDriver testDriver)
+    public sealed class UnideQuerySource
     {
-        TestDriver = testDriver;
-    }
+        private const int DefaultTimeout = 1000;
+        private const int DefaultDelay = 500;
 
-    public UniTask<UnideQuery> CreateQueryContext()
-    {
-        return UniTask.FromResult(new UnideQuery(this));
-    }
+        public IUnideDriver TestDriver { get; }
 
-    public bool EnableCaptureScreenshotBeforeClick { get; set; }
-    public string BaseScreenshotPath { get; set; }
-    public string ScreenshotPrefix { get; set; } = string.Empty;
+        public int Timeout { get; set; } = DefaultTimeout;
+        public int Delay { get; set; } = DefaultDelay;
 
-    private int _screenshotCaptureCounter;
+        public UnideQuerySource(IUnideDriver testDriver)
+        {
+            TestDriver = testDriver;
+        }
 
-    public string TakeScreenshotFilePath(string baseFileName = null)
-    {
-        if (string.IsNullOrEmpty(baseFileName)) baseFileName = $"{ScreenshotPrefix}{_screenshotCaptureCounter:D8}.png";
+        public UniTask<UnideQuery> CreateQueryContext()
+        {
+            return UniTask.FromResult(new UnideQuery(this));
+        }
 
-        var filePath = Path.Combine(BaseScreenshotPath, baseFileName);
-        _screenshotCaptureCounter++;
+        public bool EnableCaptureScreenshotBeforeClick { get; set; }
+        public string BaseScreenshotPath { get; set; }
+        public string ScreenshotPrefix { get; set; } = string.Empty;
 
-        return filePath;
+        private int _screenshotCaptureCounter;
+
+        public string TakeScreenshotFilePath(string baseFileName = null)
+        {
+            if (string.IsNullOrEmpty(baseFileName))
+                baseFileName = $"{ScreenshotPrefix}{_screenshotCaptureCounter:D8}.png";
+
+            var filePath = Path.Combine(BaseScreenshotPath, baseFileName);
+            _screenshotCaptureCounter++;
+
+            return filePath;
+        }
     }
 }
