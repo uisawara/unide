@@ -26,7 +26,7 @@ public sealed class UnideDriver : IUnideDriver
 
     public GameObject FindObjectByTag(string tag)
     {
-        return FindAll().Where(obj => obj.tag == tag).First();
+        return FindAll().Where(obj => obj.tag == tag).FirstOrDefault();
     }
 
     public GameObject FindObjectByComponent<TComponent>() where TComponent : Component

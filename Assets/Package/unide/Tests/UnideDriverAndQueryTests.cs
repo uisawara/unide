@@ -8,14 +8,14 @@ using UnityEngine.UI;
 
 namespace unide.Tests
 {
-    public sealed class UnideTests
+    public sealed class UnideDriverAndQueryTests
     {
         private readonly IUnideDriver D;
         private readonly UnideQuerySource _querySource;
 
         private UniTask<UnideQuery> Q => _querySource.CreateQueryContext();
 
-        public UnideTests()
+        public UnideDriverAndQueryTests()
         {
             D = new UnideDriver();
             _querySource = new UnideQuerySource(D);
@@ -68,35 +68,17 @@ namespace unide.Tests
         });
         
         [UnityTest]
-        public IEnumerator Nameで検索して該当なしで例外がでる() => UniTask.ToCoroutine(async () =>
+        public IEnumerator Nameで検索して該当なしでnullが返る() => UniTask.ToCoroutine(async () =>
         {
-            var throwsException = false;
-            try
-            {
-                await Q.ByName("unknown");
-            }
-            catch (Exception e)
-            {
-                Debug.Log(e);
-                throwsException = true;
-            }
-            Assert.IsTrue(throwsException);
+            var results = await Q.ByName("unknown");
+            Assert.IsNull(results.Target);
         });
 
         [UnityTest]
-        public IEnumerator Tagで検索して該当なしで例外がでる() => UniTask.ToCoroutine(async () =>
+        public IEnumerator Tagで検索して該当なしでnullが返る() => UniTask.ToCoroutine(async () =>
         {
-            var throwsException = false;
-            try
-            {
-                await Q.ByTag("unknown");
-            }
-            catch (Exception e)
-            {
-                Debug.Log(e);
-                throwsException = true;
-            }
-            Assert.IsTrue(throwsException);        
+            var results = await Q.ByTag("unknown");
+            Assert.IsNull(results.Target);
         });
 
         [UnityTest]
@@ -185,6 +167,13 @@ namespace unide.Tests
             await Q.ByName("BackButton")
                 .ShouldBe(Condition.NonInteractive);
         });
+
+        [UnityTest]
+        public IEnumerator ShouldBeでDisappearを確認できる() => UniTask.ToCoroutine(async () =>
+        {
+            await Q.ByName("<<element not exist>>")
+                .ShouldBe(Condition.Disappear);
+        });
         
         [UnityTest]
         public IEnumerator Timeout指定できる() => UniTask.ToCoroutine(async () =>
@@ -194,22 +183,6 @@ namespace unide.Tests
                 .Click();
             await Q.ByName("BackButton")
                 .Click();
-        });
-        
-        [UnityTest]
-        public IEnumerator TimeoutするとExceptionが発生する() => UniTask.ToCoroutine(async () =>
-        {
-            var throwsException = false;
-            try
-            {
-                await Q.ByName("unknown");
-            }
-            catch (Exception e)
-            {
-                Debug.Log(e);
-                throwsException = true;
-            }
-            Assert.IsTrue(throwsException);
         });
         
         [UnityTest]

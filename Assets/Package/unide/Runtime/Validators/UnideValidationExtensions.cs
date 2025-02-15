@@ -10,6 +10,7 @@ namespace unide
         Inactive,
         Interactive,
         NonInteractive,
+        Disappear
     }
     
     public static class UnideValidationExtensions
@@ -31,6 +32,9 @@ namespace unide
                     break;
                 case Condition.NonInteractive:
                     await UniTask.WaitWhile(() => context.Target.activeInHierarchy && context.Target.GetComponent<Selectable>().IsInteractable()).WithTimeout(context.Timeout);
+                    break;
+                case Condition.Disappear:
+                    await UniTask.WaitWhile(() => context.Target !=null).WithTimeout(context.Timeout);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(condition), condition, null);
