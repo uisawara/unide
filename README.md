@@ -123,6 +123,15 @@ public sealed class SampleuGUISceneWithSceneObjectTests
     public SampleuGUISceneWithSceneObjectTests()
     {
         _sceneObject = new SampleuGUISceneObject(new UnideDriver());
+
+        // 操作ウェイト設定
+        _sceneObject.QuerySource.Timeout = 5000;
+        _sceneObject.QuerySource.Delay = 1500;
+
+        // スクリーンショット自動取得設定
+        _sceneObject.QuerySource.BaseScreenshotPath =
+            Path.Combine(Application.dataPath, "../TestResults/IntegrationTests/Screenshots");
+        _sceneObject.QuerySource.EnableCaptureScreenshotBeforeClick = true;
     }
 
     [OneTimeSetUp]
