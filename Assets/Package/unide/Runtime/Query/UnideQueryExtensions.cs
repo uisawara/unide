@@ -13,21 +13,22 @@ namespace unide
             {
                 if (context.Target == null)
                 {
-                    await UniTask.WaitWhile(() => context.TestDriver.FindObjectByName(name) == null)
+                    GameObject gameObject = null;
+                    await UniTask.WaitWhile(() => (gameObject = context.TestDriver.FindObjectByName(name)) == null)
                         .WithTimeout(context.Timeout);
-                    var gameObject = context.TestDriver.FindObjectByName(name);
                     context.Target = gameObject;
                 }
                 else
                 {
-                    await UniTask.WaitWhile(() => context.TestDriver.FindChildByNameDepth(context.Target, name) == null)
+                    GameObject gameObject = null;
+                    await UniTask.WaitWhile(() => (gameObject = context.TestDriver.FindChildByNameDepth(context.Target, name)) == null)
                         .WithTimeout(context.Timeout);
-                    var gameObject = context.TestDriver.FindChildByNameDepth(context.Target, name);
                     context.Target = gameObject;
                 }
             }
             catch (TimeoutException e)
             {
+                Debug.LogWarning($"Timeout name={name} {e}");
                 context.Target = null;
             }
 
@@ -56,6 +57,7 @@ namespace unide
             }
             catch (TimeoutException e)
             {
+                Debug.LogWarning($"Timeout tag={tag} {e}");
                 context.Target = null;
             }
 
@@ -86,6 +88,7 @@ namespace unide
             }
             catch (TimeoutException e)
             {
+                Debug.LogWarning($"Timeout component={typeof(Component).Name} {e}");
                 context.Target = null;
             }
 
@@ -105,6 +108,7 @@ namespace unide
             }
             catch (TimeoutException e)
             {
+                Debug.LogWarning($"Timeout index={childIndex} {e}");
                 context.Target = null;
             }
 

@@ -45,7 +45,7 @@ namespace unide
         {
             var context = await self;
             await UniTask.WaitUntil(() => 
-                    text.Equals(new TextElement(context.Target).GetText()))
+                    text.Equals(new StringElement(context.Target).GetText()))
                 .WithTimeout(context.Timeout);
         }
     }

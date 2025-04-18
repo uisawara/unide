@@ -143,7 +143,16 @@ namespace unide.Tests
                 .GetFloat();
             Assert.AreEqual(value05, 0.5f);
         });
-        
+
+        [UnityTest]
+        public IEnumerator ScrollRectを指定箇所にスクロールできる() => UniTask.ToCoroutine(async () =>
+        {
+            await Q.ByName("Scroll View")
+                .SetScrollPositionVertical(0.25f);
+            var scrollView = await Q.ByName("Scroll View");
+            Assert.AreEqual(scrollView.Target.GetComponent<ScrollRect>().normalizedPosition.y, 0.25f);
+        });
+
         [UnityTest]
         public IEnumerator ShouldHaveでtextが成立せず例外がでる() => UniTask.ToCoroutine(async () =>
         {

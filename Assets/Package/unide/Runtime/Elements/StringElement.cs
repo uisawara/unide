@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace unide
 {
-    public sealed class TextElement
+    public sealed class StringElement
     {
         public GameObject Target { get; }
 
@@ -27,7 +27,7 @@ namespace unide
 
         private Types _type;
     
-        public TextElement(GameObject target)
+        public StringElement(GameObject target)
         {
             Target = target;
             _textMesh = Target.GetComponent<TextMesh>();
