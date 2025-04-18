@@ -155,6 +155,12 @@ public sealed class SampleuGUISceneWithSceneObjectTests
 await Q.ByName("SubPageAButton")
     .Click();
 
+// 階層の中にあるボタンクリック
+await Q.ByName("SubPageA")
+    .ByName("ScrollRect1") // あいだの階層が複数あっても対応してます。
+    .ByName("ButtonA")
+    .Click();
+
 // タイムアウト時間つきボタンクリック
 await Q.ByName("SubPageAButton")
     .SetTimeout(10000)
