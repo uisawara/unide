@@ -1,6 +1,6 @@
 {
 	"name": "com.github.uisawara.unide",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"displayName": "unide",
 	"description": "UI test utility for Unity.",
 	"unity": "2020.1",

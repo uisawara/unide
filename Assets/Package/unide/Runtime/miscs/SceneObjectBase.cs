@@ -6,7 +6,7 @@ namespace unide
     {
         public abstract string SceneName { get; }
 
-        private UnideQuerySource QuerySource { get; }
+        public UnideQuerySource QuerySource { get; }
 
         public IUnideDriver D { get; }
         public UniTask<UnideQuery> Q => QuerySource.CreateQueryContext();
