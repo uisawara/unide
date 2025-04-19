@@ -1,10 +1,12 @@
+**Machine translated**
+
 # Unide
 
 ![IMAGE](https://github.com/uisawara/unide/blob/main/CodeCoverage/Report/badge_combined.svg)
 
 A Unity Package for UI automated testing in Unity development.
 
-This package is inspired by Selenide, designed to make UI testing for Unity3D easier to write.
+A package designed to make UI testing for Unity3D uGUI easier to write.
 We aim to achieve the following:
 
 - Easy to introduce and get started
@@ -166,7 +168,7 @@ await Q.ByName("SubPageAButton")
 
 // Click button in hierarchy
 await Q.ByName("SubPageA")
-    .ByName("ScrollRect1") // あいだの階層が複数あっても対応してます。
+    .ByName("ScrollRect1")
     .ByName("ButtonA")
     .Click();
 
