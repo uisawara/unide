@@ -1,4 +1,4 @@
-**Machine translated**
+**[MACHINE TRANSLATED]**
 
 # Unide
 
@@ -126,11 +126,11 @@ public sealed class SampleuGUISceneWithSceneObjectTests
     {
         _sceneObject = new SampleuGUISceneObject(new UnideDriver());
 
-        // 操作ウェイト設定
+        // Setup timespan
         _sceneObject.QuerySource.Timeout = 5000;
         _sceneObject.QuerySource.Delay = 1500;
 
-        // スクリーンショット自動取得設定
+        // Enable automatic screenshots
         _sceneObject.QuerySource.BaseScreenshotPath =
             Path.Combine(Application.dataPath, "../TestResults/IntegrationTests/Screenshots");
         _sceneObject.QuerySource.EnableCaptureScreenshotBeforeClick = true;
@@ -195,5 +195,3 @@ await Q.ByName("LabelA")
 ```
 
 ![IMAGE](https://github.com/uisawara/unide/blob/main/Assets/icon.png)
-
-[日本語版はこちら](README.ja.md)
