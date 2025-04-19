@@ -2,9 +2,7 @@
 
 ![IMAGE](https://github.com/uisawara/unide/blob/main/CodeCoverage/Report/badge_combined.svg)
 
-Unity開発におけるUI自動テストのためのUnity Package
-
-selenideに影響を受け、Unity3D向けのUIテストを気軽に書けるようにしたPackageです。
+Unity3D uGUI向けのUIテストを気軽に書けるようにしたPackageです。
 以下のようにしています：
 
 - 手間少なく導入して使い始められる。
