@@ -2,66 +2,66 @@
 
 ![IMAGE](https://github.com/uisawara/unide/blob/main/CodeCoverage/Report/badge_combined.svg)
 
-Unity開発におけるUI自動テストを試行錯誤するUnity Package
+A Unity Package for UI automated testing in Unity development.
 
-selenideに影響を受け Unity3D向けのUIテストを気軽に書けるようにしたいと実験的に作ったPackageです。
-以下のようにしていきたいです。
+This package is inspired by Selenide, designed to make UI testing for Unity3D easier to write.
+We aim to achieve the following:
 
-- 手間少なく導入して使い始められる。
-- 短く書ける。
-- 扱いやすくメンテナンス”されやすい”自動テストコードを目指す。
-- IDEのコード補完フレンド
-- UTF:Unity Test Frameworkフレンドリ
-- 他フレームワークと組み合わせやすい。
-  - テストクラスに特別な基底クラスを必要としない。
+- Easy to introduce and get started
+- Concise syntax
+- Aim for maintainable automated test code
+- IDE code completion friendly
+- UTF: Unity Test Framework friendly
+- Easy to combine with other frameworks
+  - No special base class required for test classes
 
+## Prerequisites
 
-## 前提
+### Primary Target
 
-### 主に対象とするもの
+- Make scenario testing easier for developers using Unity Editor/Test Runner during development.
 
-* 開発時に実装する人のUnity Editor/Test Runnerでのシナリオテストをやりやすくする。
+### Not Primary Targets
 
-### 主な対象としないもの
+- Production-level quality
+  - Mainly for debugging scenario behavior during development and regression testing
+- Testing built binaries
+- Device fragmentation testing
 
-* Production向けのクオリティ
-  * 主に開発中のシナリオ動作のデバッグとレグレッションテスト向け。
-* ビルド済バイナリに対してのテスト
-* デバイスフラグメンテーションのテスト
+## Guidelines and Decision Criteria
 
-## 指針・判断基準
+- Priority order for decision making:
+  - Ease of use and error prevention > Package readability > Performance
+- We consider "extreme" abbreviated expressions for frequently used descriptions to be acceptable
+  - (Such as 'Q' for starting GameObject search queries)
+- When naming, we prioritize user perspective over engineer perspective
+  - (Prioritize abstraction like TextElement(gameObject).GetText() over gameObject.GetComponent<TextMesh>.GetValue())
 
-* 判断時の優先度は以下を想定しています。
-  * 利用側の書きやすさ・間違いにくさ＞Package内の可読性＞パフォーマンス
-* 多用する記述に対して”極端な”簡略表現をすることを良しとします。
-  * (GameObject検索クエリ開始の表現である 'Q' など)
-* 命名時はユーザー目線＞エンジニア目線の順で設計判断する。
-  * (gameObject.GetComponent<TextMesh>.GetValue() より TextElement(gameObject).GetText()のように抽象化して扱えるのを優先する)
+## Features
 
-## 機能
-
-- UI要素のクエリ
-- UI要素の操作
-- UI要素のバリデーション
-- Delay,Timeout設定
-- スクリーンショット
-  - Click前の自動スクリーンショット取得
-- 対応するUI Framework
-  - uGUI向け
+- UI element querying
+- UI element manipulation
+- UI element validation
+- Delay and Timeout settings
+- Screenshots
+  - Automatic screenshot capture before clicks
+- Supported UI Frameworks
+  - uGUI support
 
 # Installation
 
 ## Install via UPM (using Git URL)
 
-* UniTaskが必要なので[こちら](https://github.com/Cysharp/UniTask)を参照しつつインストール
-* 続けてunideをインストール
+- First install UniTask by referring to [this link](https://github.com/Cysharp/UniTask)
+- Then install unide using:
+
 ```
 https://github.com/uisawara/unide.git?path=Assets/Package/unide
 ```
 
-# Usages
+# Usage
 
-## Basic usage
+## Basic Usage
 
 ```C#
 public sealed class SampleuGUISceneTests
@@ -84,7 +84,7 @@ public sealed class SampleuGUISceneTests
     }
 
     [UnityTest]
-    public IEnumerator ページAに画面遷移で往復できる() => UniTask.ToCoroutine(async () =>
+    public IEnumerator CanNavigateToPageAAndBack() => UniTask.ToCoroutine(async () =>
     {
         await Q.ByName("SubPageAButton")
             .Click();
@@ -141,7 +141,7 @@ public sealed class SampleuGUISceneWithSceneObjectTests
     }
 
     [UnityTest]
-    public IEnumerator ページAに画面遷移で往復できる() => UniTask.ToCoroutine(async () =>
+    public IEnumerator CanNavigateToPageAAndBack() => UniTask.ToCoroutine(async () =>
     {
         await _sceneObject.SubPageAButton
             .Click();
@@ -155,41 +155,43 @@ public sealed class SampleuGUISceneWithSceneObjectTests
 }
 ```
 
-# Sample snippets
+# Sample Snippets
 
-### 定番の操作
+### Common Operations
 
 ```c#
-// ボタンクリック
+// Click button
 await Q.ByName("SubPageAButton")
     .Click();
 
-// 階層の中にあるボタンクリック
+// Click button in hierarchy
 await Q.ByName("SubPageA")
     .ByName("ScrollRect1") // あいだの階層が複数あっても対応してます。
     .ByName("ButtonA")
     .Click();
 
-// タイムアウト時間つきボタンクリック
+// Click button with timeout
 await Q.ByName("SubPageAButton")
     .SetTimeout(10000)
     .Click();
 ```
 
-### 頻出チェック
+### Common Checks
 
 ```c#
-// アクティブかチェック
+// Check if active
 await Q.ByName("TopPage")
     .ShouldBe(Condition.Active);
 
-// 非アクティブかチェック
+// Check if inactive
 await Q.ByName("SubPageB")
     .ShouldBe(Condition.Inactive);
 
-// TestMeshProUGUIのテキストチェック
+// Check TextMeshProUGUI text
 await Q.ByName("LabelA")
     .ShouldHave("LabelA");
 ```
 
 ![IMAGE](https://github.com/uisawara/unide/blob/main/Assets/icon.png)
+
+[日本語版はこちら](README.ja.md)
